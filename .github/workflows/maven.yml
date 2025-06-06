@@ -38,9 +38,9 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot-starter-web:latest .
-    #- name: Push Docker Image To Dokcer Hub
-      #run: |
-        #docker push ${{ secrets.DOCKER_USERNAME }}/springboot-starter-web:latest
+    - name: Push Docker Image To Dokcer Hub
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/springboot-starter-web:latest
         
       
       
