@@ -8,7 +8,7 @@ public class ViewController {
 	
 	@GetMapping("/index")
 	public String getView() {
-		return "index_2";
+		return "index";
 	}
 
 }
