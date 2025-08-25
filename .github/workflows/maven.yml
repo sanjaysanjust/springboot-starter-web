@@ -60,8 +60,8 @@ jobs:
           kubectl create namespace test --dry-run=client -o yaml | kubectl apply -f -
           minikube kubectl -- apply -f k8s/mongo-deployment.yaml
           minikube kubectl -- apply -f k8s/mongo-service.yaml
-          minikube kubectl -- apply -f k8s/springboot-mongo-deployment.yaml
-          minikube kubectl -- apply -f k8s/springboot-mongo-service.yaml
+          minikube kubectl -- apply -f k8s/springboot-mongodb-deployment.yaml
+          minikube kubectl -- apply -f k8s/springboot-mongodb-service.yaml
           
 
     
