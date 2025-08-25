@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-mongodb-deployment # Name of the deployment
+  namespace: test # Namespace where the deployment will be created
+spec:
+  replicas: 1 # Number of pod replicas
+  selector:
+    matchLabels:
+      app: springboot-mongodb # Label to match pods
+  template:
+    metadata:
+      name: springboot-mongodb-pod # Name of the pod
+      labels:
+        app: springboot-mongodb # Label for the pod
+    spec:
+      containers:
+        - name: springboot-mongodb-container # Name of the container
+          image: sanjayst/springboot-mongodb:latest # Docker image for the container
+          ports:
+            - containerPort: 8080 # Port on which the application will run
+          env:
+            - name: SPRING_DATA_MONGODB_URI # Environment variable for MongoDB connection URI
+              value: mongodb://mongo-service:27015/test # MongoDB service URL
+            - name: SPRING_DATA_MONGODB_DATABASE # Environment variable for MongoDB database name
+              value: test # Name of the MongoDB database
+            - name: SPRING_DATA_MONGODB_USERNAME # Environment variable for MongoDB username
+              value: root # MongoDB username
+            - name: SPRING_DATA_MONGODB_PASSWORD # Environment variable for MongoDB password
+              value: root # MongoDB password
